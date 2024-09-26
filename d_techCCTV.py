@@ -53,6 +53,9 @@ def check_ip_location(ip):
         return response.json()
     return None
 
+# List of country codes to fetch CCTV feeds from
+country_codes = ['US', 'JP', 'IN', 'FR', 'DE', 'RU', 'CN', 'BR', 'ZA']  # Add more countries if needed
+
 # Apply D-TECH theme and futuristic entry
 futuristic_entry()
 
@@ -79,7 +82,7 @@ type_effect("Booting up core modules...", speed=0.05)
 time.sleep(0.5)  # Reduced sleep
 loading_animation("Connecting to D-TECH servers", 2)  # Duration kept for suspense
 
-# Access all CCTV cameras worldwide
+# Access CCTV cameras worldwide
 clear_terminal()
 print("\033[1;37m")  # White text
 
@@ -88,16 +91,19 @@ type_effect("--&--~%P~EASX24 -%----", speed=0.07)
 time.sleep(0.5)  # Reduced sleep
 type_effect("Welcome to the D-TECH CCTV FOOTAGE ACCESS POINT TO SECURITY CAMERA WORLDWIDE!", speed=0.06)
 time.sleep(0.5)  # Reduced sleep
-type_effect("Accessing all CCTV networks worldwide...\n", speed=0.05)
+type_effect("Accessing CCTV networks in multiple countries...\n", speed=0.05)
 
 # Simulate IP fetch with progress bar effect
 try:
     headers = {'User-Agent': 'Mozilla/5.0 (X11; Linux i686; rv:68.0) Gecko/20100101 Firefox/68.0'}
     total_ips_fetched = 0
 
-    while True:
-        for page in range(0, 82):
-            url = f"http://www.insecam.org/en/bycountry/RU/?page={page}"
+    for country_code in country_codes:
+        print(f"\033[1;34mFetching CCTV feeds for country: {country_code}")
+        time.sleep(1)  # Simulate loading per country
+
+        for page in range(0, 5):  # Adjust the number of pages to scrape per country
+            url = f"http://www.insecam.org/en/bycountry/{country_code}/?page={page}"
             res = requests.get(url, headers=headers)
             findip = re.findall('http://\d+\.\d+\.\d+\.\d+:\d+', res.text)
             
