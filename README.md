@@ -19,8 +19,8 @@ Simple, fast, and effective.
    pkg install git python
    ```
 
-4. **Clone Your GitHub Repository**:
-   Clone your repository using the following command (replace `<USERNAME>` with your GitHub username):
+4. **Clone GitHub Repository**:
+   Clone repository using the following command :
    ```bash
    git clone https://github.com/Preasx24/CCTV-FOOTAGE-WORLDWIDE-.git
    ```
